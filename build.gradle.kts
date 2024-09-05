@@ -1,6 +1,7 @@
 import com.google.protobuf.gradle.id
 import config.Versions
 
+//
 // https://github.com/google/protobuf-gradle-plugin/blob/master/examples/exampleProject/build.gradle
 plugins {
     `maven-publish`
