@@ -1,0 +1,54 @@
+syntax = "proto3";
+option java_package = "org.matrix.game.proto.c2s";
+option java_outer_classname = "C2SMsg";
+option java_multiple_files = true;
+
+message GameReq {
+  oneof payload {
+    // 登录/登出
+    LoginGame loginGame = 1001;
+    LogoutGame logoutGame = 1002;
+
+    // 测试
+    DoSomeAction doSomeAction = 2001;
+  }
+}
+
+message GameResp {
+  int32 code = 1;
+  oneof payload {
+    // 登录
+    LoginGameRt loginGameRt = 1001;
+    LogoutGameRt logoutGameRt = 1002;
+
+    // 测试
+    DoSomeActionRt doSomeActionRt = 2001;
+  }
+}
+
+// 1001
+message LoginGame {
+  int64 playerId = 1;
+}
+
+message LoginGameRt {
+  string msg = 1;
+}
+
+// 1002
+message LogoutGame {
+}
+
+message LogoutGameRt {
+  string msg = 1;
+}
+
+// 2001
+message DoSomeAction {
+  int64 playerId = 1;
+  string desc = 2;
+}
+
+message DoSomeActionRt {
+  string msg = 1;
+}
