@@ -1,0 +1,12 @@
+syntax = "proto3";
+option java_package = "org.matrix.game.proto.home";
+option java_outer_classname = "HomeProto";
+option java_multiple_files = true;
+
+import "google/protobuf/any.proto";
+
+message HomeMessage {
+  int64 playerId = 1;
+  string msgName = 2;
+  google.protobuf.Any payload = 3;
+}

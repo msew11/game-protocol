@@ -1,9 +1,9 @@
 syntax = "proto3";
-option java_package = "org.matrix.game.proto.c2s";
-option java_outer_classname = "C2SMsg";
+option java_package = "org.matrix.game.proto.client";
+option java_outer_classname = "ClientProto";
 option java_multiple_files = true;
 
-message GameReq {
+message ClientReq {
   oneof payload {
     // 登录/登出
     LoginGame loginGame = 1001;
@@ -14,7 +14,7 @@ message GameReq {
   }
 }
 
-message GameResp {
+message ClientResp {
   int32 code = 1;
   oneof payload {
     // 登录
@@ -45,8 +45,7 @@ message LogoutGameRt {
 
 // 2001
 message DoSomeAction {
-  int64 playerId = 1;
-  string desc = 2;
+  string desc = 1;
 }
 
 message DoSomeActionRt {
